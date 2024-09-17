@@ -1,22 +1,39 @@
 <html>
-    <head>
-        <title>{{title}}</title>
-        <script type="module">import * as library from './static/__target__/library.js'; window.library = library;</script>
-    </head>
-    <body>
-        <h1>Welcome to {{title}}</h1>
-        <p>
-        	In this project you will generate some random number and sort them.
-        </p>
-        <p>
-        	<div id="generate">...</div>
-        	<button onclick="library.generate()">Generate 10 numbers</button>
-        </p>
-        <p>
-        	<div id="sorted">...</div>
-        	<button onclick="library.sortnumber1()">Sort</button>
-        </p>
-        <br><a href="index">Home</a>
-
-    </body>
+  <head>
+    <title>{{title}}</title>
+    <script type="module">
+      import * as library from "./static/__target__/library.js";
+      window.library = library;
+    </script>
+    <link rel="stylesheet" type="text/css" href="./static/style.css" />
+  </head>
+  <body>
+    <h1>Welcome to {{title}}</h1>
+    <p>
+      In this project you will generate some random number and <b>sort</b> them.
+    </p>
+    <p>
+      1. Generate 10 random numbers and display them in the "Generated" section.
+    </p>
+    <div>
+      <label>Generated</label>
+      <div id="generate" class="numbers">...</div>
+    </div>
+    <button onclick="library.generate()">Generate 10 numbers</button>
+    <p>
+      2. Sort the generated numbers and display them in the "Sorted" section.
+    </p>
+    <div>
+      <label>Sorted</label>
+      <div id="sorted" class="numbers">...</div>
+    </div>
+    <div>
+      <label>Benchmark</label>
+      <table id="benchmark">
+        ...
+      </table>
+    </div>
+    <button onclick="library.sortnumber1()">Sort</button>
+    <br /><a href="index">Home</a>
+  </body>
 </html>
