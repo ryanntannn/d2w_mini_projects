@@ -1,0 +1,1 @@
+python -m transcrypt -b -n app/static/library
