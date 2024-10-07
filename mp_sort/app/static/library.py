@@ -158,6 +158,14 @@ def generate():
     document.getElementById("generate").innerHTML = array_str  # type: ignore
 
 
+ALGO_MAP = {
+    "Bubble Sort": bubble_sort,
+    "Insertion Sort": insertion_sort,
+    "Quick Sort": quick_sort,
+    "Pogo Sort": pogo_sort
+}
+
+
 def sortnumber1():
     '''	This function is used in Exercise 1.
             The function is called when the sort button is clicked.
@@ -184,17 +192,10 @@ def sortnumber1():
 
     # Lets have fun and benchmark each algorithm
 
-    _alg_map = {
-        "Bubble Sort": bubble_sort,
-        "Insertion Sort": insertion_sort,
-        "Quick Sort": quick_sort,
-        "Pogo Sort": pogo_sort
-    }
-
     _sort_results = list(map(
-        lambda x: (x, _alg_map[x](string_to_array(
+        lambda x: (x, ALGO_MAP[x](string_to_array(
             unsafe_generated_number_list_str))),
-        _alg_map.keys()
+        ALGO_MAP.keys()
     ))
 
     document.getElementById("benchmark").innerHTML = ''.join(map(
@@ -224,8 +225,18 @@ def sortnumber2():
 
     # Your code should start from here
     # store the final string to the variable array_str
-    pass
 
-    array_str = None
+    number_list = list(  # finally convert it to a list
+        # map over the list of strings and convert them to integers
+        map(
+            int,
+            value
+            .split(",")
+        )
+    )
+
+    sorted_generated_number_list, _ = bubble_sort(number_list)
+
+    array_str = array_to_string(sorted_generated_number_list)
 
     document.getElementById("sorted").innerHTML = array_str

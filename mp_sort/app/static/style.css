@@ -77,3 +77,20 @@ table {
     padding: 8px;
   }
 }
+
+input {
+  font-family: "Libre Baskerville", serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+
+#sorted {
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
