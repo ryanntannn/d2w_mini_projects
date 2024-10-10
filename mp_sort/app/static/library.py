@@ -83,11 +83,15 @@ def bubble_sort(array: list[int]) -> tuple[list[int], int, int]:
     comparisons = 0
     n = len(array)
     for i in range(n):
+        swapped = False
         for j in range(0, n-i-1):
             comparisons += 1
             if array[j] > array[j+1]:
                 array[j], array[j+1] = array[j+1], array[j]
                 swaps += 1
+                swapped = True
+        if not swapped:
+            break
     return array, swaps, comparisons
 
 
