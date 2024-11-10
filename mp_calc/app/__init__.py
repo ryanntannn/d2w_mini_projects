@@ -1,3 +1,4 @@
+from app import routes, models
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -16,6 +17,3 @@ bootstrap = Bootstrap5(application)
 
 # set voc=False if you run on local computer
 application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=True)
-
-
-from app import routes, models
