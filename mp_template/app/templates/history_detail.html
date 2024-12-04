@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% import "bootstrap/form.html" as wtf %} {% block
+app_content %}
+<h1>Agricultural Emissions Predictor</h1>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Input</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Scenario Name</td>
+        <td>{{ prediction_input.scenario_name }}</td>
+      </tr>
+      <tr>
+        <td>Total Population</td>
+        <td>{{ prediction_input.total_population }}</td>
+      </tr>
+      <tr>
+        <td>Percentage Urban</td>
+        <td>{{ prediction_input.percentage_urban }}</td>
+      </tr>
+      <tr>
+        <td>Percentage Male</td>
+        <td>{{ prediction_input.percentage_male }}</td>
+      </tr>
+      <tr>
+        <td>GDP Per Capita</td>
+        <td>{{ prediction_input.gdp_per_capita }}</td>
+      </tr>
+      <tr>
+        <td>Human Development Index</td>
+        <td>{{ prediction_input.human_development_index }}</td>
+      </tr>
+      <tr>
+        <td>Temperature Increase</td>
+        <td>{{ prediction_input.temperature_increase }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Source</th>
+        <th scope="col">Predicted Emissions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for idx in range(predictions|length) %}
+      <tr>
+        <td>{{ predictions[idx]['source'] }}</td>
+        <td>{{ predictions[idx]['value'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% import "bootstrap/form.html" as wtf %} {% block
+app_content %}
+<h1>Agri-food Emissions Predictor</h1>
+<p>Create a new urbanization scenario to predict Agri-food emissions</p>
+<div class="row">
+  <div class="col-md-4">{{ wtf.render_form(form)}}</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Source</th>
+        <th scope="col">Predicted Emissions (ktC02)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for idx in range(predictions|length) %}
+      <tr>
+        <td>{{ predictions[idx]['source'] }}</td>
+        <td>{{ predictions[idx]['value'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- <h1>History</h1>
+  <br /> -->
+  <!-- {% for idx in range(history|length) %}
+  <button>{{history[idx]}}</button>
+  {% endfor %} -->
+</div>
+{% endblock %}

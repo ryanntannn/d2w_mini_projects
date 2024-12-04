@@ -1,8 +1,21 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block app_content %}
 
-{% block app_content %}
+<p>Welcome Back, {{ current_user.username }}!</p>
 
-<h1 class="display-1">Hi, {{ current_user.username }}!</h1>
+<h1 class="display-4">About the application</h1>
 
-<p class="lead">Welcome to our Final Project.</p>
+<p>
+  This application is a simple web application that allows you to predict your
+  country's emissions from Agricultural sources, using simple inputs such as the
+  country's GDP, population, and percentage population in urban areas.
+</p>
+
+<p>
+  We hope that this application will help you understand the impact of
+  urbanization on emissions from Agricultural sources, and how this can be used
+  to inform policy decisions.
+</p>
+<button class="btn btn-primary" onclick="window.location.href='/predictor'">
+  Start Predicting Emissions Now!
+</button>
 {% endblock %}

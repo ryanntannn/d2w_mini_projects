@@ -20,8 +20,6 @@ class User(UserMixin, db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(64), index=True, unique=True)
 	password_hash = db.Column(db.String(128))
-	questions = db.relationship('Question', backref='from_user', 
-								lazy='dynamic')
 	def set_password(self, password):
 		self.password_hash = generate_password_hash(password)
 
@@ -32,4 +30,15 @@ class User(UserMixin, db.Model):
 		return f'<User {self.username:}>'
 
 # create your model for the database here
-
+class PredictorInput(db.Model):
+    __tablename__ = 'prediction'
+    id = db.Column(db.Integer, primary_key=True)
+    scenario_name = db.Column(db.String(64))
+    total_population = db.Column(db.Integer)
+    gdp_per_capita = db.Column(db.Integer)
+    percentage_male = db.Column(db.Integer)
+    percentage_urban = db.Column(db.Integer)
+    human_development_index = db.Column(db.Float)
+    temperature_increase = db.Column(db.Float)
+    created_at = db.Column(db.DateTime, default=datetime.now())
+	
